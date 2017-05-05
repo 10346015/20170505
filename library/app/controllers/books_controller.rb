@@ -1,10 +1,17 @@
 class BooksController < ApplicationController
+  
+  before_action :find_book, only:[:show]
+  
   def index
     @books = Book.all
   end
   
   def new
     @book = Book.new
+  end
+  
+  def show
+    
   end
   
   def create
@@ -24,5 +31,9 @@ class BooksController < ApplicationController
       params.require("book").permit(:name,:content,:author,:price)
     end
    
+  def find_book
+   @book = Book.find_by(id: params[:id])
+   redirect_to books_path , notice: "no data!" if @book.nil?
+ end
 
 end
