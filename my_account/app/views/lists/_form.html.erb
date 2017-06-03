@@ -1,0 +1,13 @@
+<%= form_for list, url: url do |f| %>
+  Date: <%= f.text_field :date%><br/><br/>
+  Item:<%= f.text_field :item %><br/><br/>
+  Cost:<%= f.text_field :cost %><br/><br/>
+  Kind:<br/><blockquote>
+      <%= radio_button("list","kind","food") %>food<br/>
+      <%= radio_button("list","kind","traffic") %>traffic<br/>
+      <%= radio_button("list","kind","entertainment") %>entertainment<br/>
+      <%= radio_button("list","kind","clothing") %>clothing<br/>
+      <%= radio_button("list","kind","other") %>other<br/></blockquote>
+  <%= f.hidden_field :month %> <br/>
+<%= f.submit %>
+<% end %>

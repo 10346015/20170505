@@ -1,0 +1,4 @@
+<h1>New List</h1>
+
+<% @list.month = @account.month %>
+<%= render 'form' , list: @list , url: {action: "create" }%>

@@ -1,0 +1,32 @@
+<h1><%= @account.month %><B>月 </B></h1>
+
+  <%= link_to "Create", new_account_list_path(@account) ,class: "btn btn-primary" %>
+
+  <table class="table table-hover ">
+    <thead>
+      <tr>
+        <td>Date</td>
+        <td>Item</td>
+        <td>Cost</td>
+        <td>Kind</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lists.each do |list| %>
+      <% if list.month == @account.month %>
+      <tr>
+        <td><%= list.date %></td>
+        <td><%= list.item %></td>
+        <td><%= list.cost %></td>
+        <td><%= list.kind %></td>
+        <td>
+          <%= link_to "編輯", edit_account_list_path(@account, list) ,class: "btn btn-success btn-xs"%>
+          <%= link_to "刪除", account_list_url(@account, list) , method: 'delete' , data: { confirm: "確認刪除" },class: "btn btn-danger btn-xs" %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "Back", accounts_path ,class: "btn btn-primary" %>

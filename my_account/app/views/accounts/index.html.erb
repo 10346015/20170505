@@ -1,0 +1,28 @@
+<h1>Account</h1>
+
+  <%= link_to "Create", new_account_path ,class: "btn btn-primary" %>
+
+  <table class="table table-hover ">
+    <thead>
+      <tr>
+        <td>Month</td>
+        <td>Limitation</td>
+        <td>Remainder</td>
+
+      </tr
+    </thead>
+    <tbody>
+      <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.month %></td>
+        <td><%= account.limitation %></td>
+        <td></td>
+        <td>
+          <%= link_to "查看", account_lists_url(account) ,class: "btn btn-primary btn-xs"%>
+          <%= link_to "編輯", edit_account_path(account) ,class: "btn btn-success btn-xs"%>
+          <%= link_to "刪除", account , method: 'delete' , data: { confirm: "確認刪除" },class: "btn btn-danger btn-xs" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

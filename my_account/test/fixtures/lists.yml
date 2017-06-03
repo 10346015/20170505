@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  item: MyString
+  cost: 1
+  kind: MyString
+  month: 1
+
+two:
+  date: MyString
+  item: MyString
+  cost: 1
+  kind: MyString
+  month: 1
